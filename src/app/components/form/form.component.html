@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="mt-2 p-3 bg-secondary text-white rounded text-center">
+    <h2>Product Entry Form</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="" appHighlight>Product Name</label>
+      <input appAdminaccess type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="productobj.name">
+    </div>
+    <div class="col-md-2">
+      <label for="" appHighlight>Select Category</label>
+      <select class="form-control" name="category" [(ngModel)]="productobj.category">
+        <option> Select Categpory</option>
+        <option value="bi bi-laptop text-dark">Laptop</option>
+        <option value="bi bi-phone text-danger"> Mobile</option>
+        <option value="bi bi-pc-display-horizontal text-success">Desktop PC</option>
+      </select>
+      <i  [ngClass]="productobj.category"></i>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <label for="">Product Origin Price</label>
+      <input type="text" name="oprice" (ngModelchange)="calculateprice()" class="form-control"
+        [(ngModel)]="productobj.oprice">
+    </div>
+    <div class="col-md-2 p-2">
+      <div for=""appHighlight>Is Discount</div>
+      <input type="checkbox" name="isdiscount" id="chkDiscount" [(ngModel)]="productobj.isdiscount">
+    </div>
+    <div class="col-md-2 Discount nodisplay" *ngIf="productobj.isdiscount">
+      <label for="">Enter Discount in Amt</label>
+      <input type="text" name="discountamout" id="txtDiscount" (ngModelChange)="calculateprice()" class="form-control"
+        [(ngModel)]="productobj.discountamout">
+    </div>
+    <div class="col-md-2 FinalPrice nodisplay" *ngIf="productobj.discountamout!='' && productobj.oprice!=''">
+      <label for="">Final Price</label>
+      <input type="text" name="finalamount" class="form-control" [(ngModel)]="productobj.finalamount">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <div for=""appHighlight>Is Product Washable with warm water</div>
+      <input type="radio" name="washable" id="" value="yes" [(ngModel)]="productobj.iswashable"> Yes
+      <input type="radio" name="washable" id="" value="no" [(ngModel)]="productobj.iswashable"> No
+    </div>
+  </div>
+  <div class="row">
+    <!-- *ngIf="productobj.iswashable=='yes' -->
+    <div class="col-md-6" [ngClass]="productobj.iswashable=='yes'?'washble2':'displaycol'">
+      <p>Product Is washable with warn water only</p>
+      <p>Do Not Rinse and dry it is inside </p>
+    </div>
+    <div class="col-md-6" [ngClass]="productobj.iswashable=='no'?'washble1':'displaycol'">
+      <p>Product can't be washed</p>
+      <p>Just Dry it and clean it </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Colors Available
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label for="">Select Color</label>
+      <select class="form-control" [(ngModel)]="color">
+        <option value=""> Select Color</option>
+        <option value="bg-danger">Red</option>
+        <option value="bg-primary">Blue</option>
+        <option value="bg-success">Green</option>
+        <option value="bg-secondary">Gray </option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button appAdminaccess style="margin-top: 23px;" class="btn btn-sm btn-success" id="btnAdd" (click)="addcolor()">Add</button>
+    </div>
+  </div>
+  <div class="row colorDiv mt-2" >
+    <div *ngFor="let item of productobj.colorArray" [ngClass]="item" class="color">{{item}}</div>
+  </div>
+</div>
+

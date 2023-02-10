@@ -1,0 +1,21 @@
+.color{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+/* col-md-6 bg-secondary  text-white m-2 washableDiv nodisplay */
+.washble1{
+  background-color: gray;
+  color:aliceblue;
+  margin: 20px;
+  display: block;
+}
+.washble2{
+  background-color: rgb(218, 69, 69);
+  color:rgb(189, 193, 197);
+  margin: 20px;
+  display: block;
+}
+.displaycol{
+  display: none;
+}

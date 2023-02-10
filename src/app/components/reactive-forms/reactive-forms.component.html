@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="" [formGroup]="courseForm">
+        <div>
+          <label for="">CourseName</label>
+          <input type="text" formControlName="CourseName" class="form-control">
+          <div *ngIf="courseForm.controls['CourseName'].touched">
+            <span class="text-danger" *ngIf="courseForm.controls['CourseName'].errors?.['required']">required</span>
+          </div>
+        </div>
+        <div>
+          <label for="">CourseDuration</label>
+          <input type="text" formControlName="CourseDuration" class="form-control">
+          <div *ngIf="courseForm.controls['CourseDuration'].touched">
+            <span class="text-danger" *ngIf="courseForm.controls['CourseDuration'].errors?.['required']">required</span>
+            <span class="text-danger" *ngIf="courseForm.controls['CourseDuration'].errors?.['minlength']">minLength</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="">CourseBasicFees</label>
+          <input type="text" formControlName="CourseBasicFees" class="form-control">
+          <div *ngIf="courseForm.controls['CourseBasicFees'].touched">
+            <span class="text-danger" *ngIf="courseForm.controls['CourseBasicFees'].errors?.['required']">required</span>
+            <span class="text-danger" *ngIf="courseForm.controls['CourseBasicFees'].errors?.['minlength']">minimum Length should be 5 digits.</span>
+            <span class="text-danger" *ngIf="courseForm.controls['CourseBasicFees'].errors?.['maxlength']">maximum Length should be 8 digits.</span>
+          </div>
+        </div>
+        <div>
+          <label for="">Password</label>
+          <input type="password" formControlName="Password" class="form-control">
+          <div *ngIf="courseForm.controls['Password'].touched">
+            <span class="text-danger" *ngIf="courseForm.controls['Password'].errors?.['required']">required</span>
+            <span class="text-danger" *ngIf="courseForm.controls['Password'].errors?.['pattern']">Password pattern should be in one Caps,one Small,one number and one spectial char with min 8 and max 12 digits</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="onAddCourse()">Add Course</button>
+      </form>
+    </div>
+  </div>
+</div>
+<p-calendar [(ngModel)]="value"  dateFormat="dd.mm.yy"></p-calendar>
+<p-colorPicker [(ngModel)]="color"></p-colorPicker>
+<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+

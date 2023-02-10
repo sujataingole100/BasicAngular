@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mt-5">
+      <form class="form bg-light p-5">
+        <div class="mb-3">
+          <label class="form-label">Date Of Birth</label>
+          <input class="form-control" type="date" placeholder="DD-MM-YYYY">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Name</label><span class="text-danger fw-bold">*</span>
+          <div class="row">
+            <div class="col-lg-6"><input class="form-control" name="fName" #fname="ngModel" type="text"
+                placeholder="First Name" [(ngModel)]="clientdetails.fName" required>
+              <div *ngIf="fname.touched">
+                <span class="text-danger" *ngIf="fname.errors?.['required']">First Name Required</span>
+              </div>
+            </div>
+
+            <div class="col-lg-6"><input class="form-control" name="lname" #lname="ngModel" type="text"
+                placeholder="Last Name" [(ngModel)]="clientdetails.lName" required>
+              <div class="" *ngIf="lname.touched">
+                <span class="text-danger" *ngIf="lname.errors?.['required']">Last Name Required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contact Details </label><span class="text-danger fw-bold">*</span>
+          <div class="row">
+            <div class="col-lg-6"><input class="form-control" name="ContactDetails" #pno="ngModel"
+                [(ngModel)]="clientdetails.ContactDetails" type="text" placeholder="Conatct No" minlength="10" maxlength="10" required>
+              <div class="" *ngIf="pno.touched">
+                <span class="text-danger" *ngIf="pno.errors?.['required']">Contact Number Required.</span>
+                <span class="text-danger" *ngIf="pno.errors?.['minlength']">10 digits Number Required.</span>
+                <span class="text-danger" *ngIf="pno.errors?.['maxlength']">More than 10 digits Number Entered.</span>
+              </div>
+            </div>
+            <div class="col-lg-6"><input class="form-control" type="email" placeholder="Email"  name="emailid" #emailid="ngModel"
+              [(ngModel)]="clientdetails.emailid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+              <div class="" *ngIf="emailid.touched">
+                <span class="text-danger" *ngIf="emailid.errors?.['required']">Email Id Required.</span>
+                <span class="text-danger" *ngIf="emailid.errors?.['pattern']">Need Email in abc@domain.com pattern</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label><span class="text-danger fw-bold">*</span>
+          <input class="form-control" type="text" placeholder="Phone Number">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Covid-19 Test Status: </label>
+          <div class="m-3">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pendingtest" [(ngModel)]="clientdetails.pendingtest">I Have a Pending Covid-19 Test
+            <div class="m-3" *ngIf="clientdetails.pendingtest">
+              <label class="form-label">Provide Test Serial No if Pending</label>
+              <input class="form-control" type="text" placeholder="Provide Test Serial No if Pending">
+            </div>
+          </div>
+          <div class="m-3">
+            <input type="checkbox" class="form-check-input" name="coviddetected" [(ngModel)]="clientdetails.coviddetected" >Covid-19 Detected
+            <div class="m-3" *ngIf="clientdetails.coviddetected">
+              <label class="form-label">If Covid-19 Detected Explain What treatment is going on from which Doctor</label>
+              <input class="form-control" type="text" style="height:100px ;">
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+         <div class="row align-items-center">
+          <div class="col-lg-6">
+            <label class="form-label">Select Symptons</label>
+          <div>
+            <select name="symptomsarray"  placeholder="select" [(ngModel)]="SelectSymptons" style="width: 100%; height:40px;">
+              <option selected>Select</option>
+              <option value="Fever">Fever</option>
+              <option value="cold">cold</option>
+              <option value="body Pain">body Pain</option>
+              <option value="no smell">No Smell</option>
+            </select>
+          </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <button class="btn btn-success" (click)="addsymptons()">Add Symptons</button>
+          </div>
+         </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row p-5">
+    <div class="col-lg-6">
+      <table class="table table-bordered">
+        <tr>
+          <th>Sr No</th>
+          <th>Symptoms</th>
+        </tr>
+        <tr *ngFor="let items of clientdetails.symptomsarray;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{items}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

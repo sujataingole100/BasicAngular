@@ -1,0 +1,63 @@
+<p>ngfor</p>
+<div class="row">
+  <div class="col">
+    <h4 class="text-primary">ngFor Using Dropdown</h4>
+    <select>
+      <option *ngFor="let cityname of city">{{ cityname }}</option>
+    </select>
+  </div>
+  <div class="col">
+    <h4 class="text-primary">ngFor Using List</h4>
+    <ul>
+      <li *ngFor="let cityarray of city">{{ cityarray }}</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4 class="text-primary" class="text-primary">ngFor With Label</h4>
+    <label *ngFor="let citylabel of city">{{ citylabel }} , </label>
+  </div>
+  <div class="col">
+    <h4 class="text-primary">ngFor Using Table</h4>
+    <div class="col">
+      <input type="text" placeholder="Enter City" [(ngModel)]="addcity">
+      <button class="btn btn-success btn-sm" (click)="addcityInarray()">AddCityInArray</button>
+      <button class="btn btn-danger btn-sm" (click)="removecityInarray()">RemoveCityInArray</button>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+        <th>Sequence No.</th>
+        <th>City Name</th>
+        <th>IsFirstOrLastCity</th>
+      </tr>
+      <tr *ngFor="let citytable of city; let i = index;let isfirst = first; let isLast = last;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ citytable }}</td>
+        <td>
+          {{isfirst?'FirstCity':''}}
+          {{isLast?'LastCity':''}}
+      </td>
+      </tr>
+    </table>
+  </div>
+  <!-- <div class="col d-inline-block">
+    <div *ngFor="let citydiv of city">
+      {{ citydiv }}
+    </div>
+  </div> -->
+</div>
+<div class="row">
+
+  <div class="col-lg-6">
+    <h4 class="text-primary">ngFor ArrayOfObject</h4>
+    <table class="table table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Roll Number</th>
+      </tr>
+      <tr *ngFor="let student of studentlist">
+        <td>{{ student.name }}</td>
+        <td>{{ student.rono }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<h1 class="editstudent">edit-student</h1>
+<h4>{{rollNo}}</h4>
+<h4>{{hasAllDocument}}</h4>
+<h4>{{Name}}</h4>
+<h4>{{currentDate}}</h4>
+<h4>{{eployeearr}}</h4>
+<h4>Employee Name:{{employeeOBJ.employeeName}},Employee Salary:{{employeeOBJ.employeeSalary}},Employee Working:{{employeeOBJ.employeeWorking}}</h4>
+<table>
+    <tr>
+        <td (click)="Decrement()">Decrement</td>
+        <td>{{rollNo}}</td>
+        <td (click)="Increment()">Increment</td>
+    </tr>
+    <tr>
+        <td>
+            <select (change)="selectcity()">
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Pune">Pune</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <input type="text" [(ngModel)]="num1" placeholder="Enter First No">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="num2" placeholder="Enter Second No">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="result" (click)="AddtionOfNo()" placeholder="Addtion of two no is">
+        </td>
+    </tr>
+</table>

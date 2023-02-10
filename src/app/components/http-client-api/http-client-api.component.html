@@ -1,0 +1,49 @@
+<p>http-client-api works!</p>
+<div class="row">
+  <div class="col-lg-4">
+    <table>
+      <tr>
+        <th>LanguageId</th>
+        <th>Language</th>
+      </tr>
+      <tr *ngFor="let list of languagesList">
+        <td>{{list.LanguageId}}</td>
+        <td>{{list.Language}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-lg-4">
+    <h4 class="bg-primary p-2 text-white">Add Language</h4>
+    <form class="form">
+      <div>
+        <input class="form-control" type="text" [(ngModel)]="addlanguageobj.Language" name="addlanguageobj" placeholder="Enter Language">
+      </div>
+      <div class="mt-3">
+        <button class="btn btn-success" (click)=addLanguage()>addLanguage</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-lg-4">
+    <button class="btn btn-success" (click)="showtable2()">showtable2</button>
+    <button class="btn btn-success" (click)="hidetable2()">Hidetable2</button>
+    <table *ngIf="showtable">
+      <tr>
+        <th>LanguageTopicId</th>
+        <th>LanguageId</th>
+        <th>TopicName</th>
+        <th>Language</th>
+        <th>OrderNo</th>
+      </tr>
+      <tr *ngFor="let lang of LanguageTopic">
+        <td>{{ lang.LanguageTopicId }}</td>
+        <td>{{ lang.LanguageId }}</td>
+        <td>{{ lang.TopicName }}</td>
+        <td>{{ lang.Language }}</td>
+        <td>{{ lang.OrderNo }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+

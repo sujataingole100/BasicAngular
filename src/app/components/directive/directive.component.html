@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col bg-primary" *ngIf="isDiv1visible">
+     div1
+    </div>
+   
+    <div class="col bg-secondary" *ngIf="toogle">
+        div2
+       
+    </div>
+    <div class="col bg-success" *ngIf="true">
+        div3
+    </div>
+    <div class="col bg-danger" *ngIf="div4visibility">
+        div4
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <button (click)="showdiv1()">showdiv1</button>
+        <button (click)="hidediv1()">hidediv1</button>
+    </div>
+    <div class="col">
+        <button (click)="ngtoogle()">toogle</button>
+    </div>
+    <div class="col">
+        <button (click)="div4visibilityfun()">Div4</button>
+    </div>
+</div>

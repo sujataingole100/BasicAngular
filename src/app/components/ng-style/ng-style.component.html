@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col" [style.color]="newColor">
+    Div1
+  </div>
+  <div class="col-lg-3" style="background-color:aquamarine;" [style.width.%]="div2width">
+    DIV2
+  </div>
+  <div class="col" [ngStyle]="addproperty">
+    DIV3
+  </div>
+  <div class="col"></div>
+</div>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-success" (click)="addColor()">Add Color</button>
+    <button class="btn btn-success" (click)="removeColor()">Remove Color</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-success" (click)="addwidth()">Add Width</button>
+    <button class="btn btn-success" (click)="removewidth()">Remove Width</button>
+  </div>
+  <div class="col">
+    <button class="btn btn-success" (click)="addmystyle()">Add Style</button>
+    <button class="btn btn-success" (click)="removemystyle()">Remove Style</button>
+  </div>
+  <div class="col"></div>
+</div>
+<!-- <div class="row">
+  <div class="col">
+    <div class="progress">
+      <div class="progress-bar" [style.width.%]="binding">{{binding}}%</div>
+    </div>
+  </div>
+  <input type="text" [(ngModel)]="binding">
+</div> -->
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+     <tr>
+       <th>Sr No</th>
+       <th>Name</th>
+       <th>Percentage</th>
+     </tr>
+     <tr *ngFor="let student of studentobj ;let i=index">
+       <td>
+         {{i+1}}
+       </td>
+       <td>
+         {{student.name}}
+        </td>
+      <td>
+        <div class="progress-bar" [style.width.%]="student.percentage">{{student.percentage}}%</div>
+      </td>
+     </tr>
+    </table>
+   </div>
+</div>

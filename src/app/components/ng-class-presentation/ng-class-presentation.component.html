@@ -1,0 +1,227 @@
+<!-- Form With ngClass -->
+ <!-- <div class="container">
+  <div class="form-body">
+    <div class="row">
+      <h4 class="p-3 bg-primary text-white text-center">E-Shop Form</h4>
+      <div class="col" [ngClass]="istable?'col-lg-6':'col-lg-12'">
+        <form class="formstyle">
+          <div class="row m-3">
+            <div class="col">
+              <label>Enter Your Name</label>
+              <input type="text" placeholder="Enter Your Name" class="form-control" name="name"
+                [(ngModel)]="customerDetailsObj.name">
+            </div>
+            <div class="col">
+              <label>Enter Your Phone Number</label>
+              <input type="number" placeholder="Enter Your Phone Number" class="form-control" name="number"
+                [(ngModel)]="customerDetailsObj.number">
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col-lg-6">
+              <label>Select Device You Want To Purchase</label>
+              <select name="deviceName" placeholder="Select Device You Want To Purchase" class="form-control"
+                [(ngModel)]="customerDetailsObj.deviceName">
+                <option selected>Select</option>
+                <option value="laptop">Laptop</option>
+                <option value="mobile">Mobile</option>
+                <option value="i-pad">I-Pad</option>
+                <option value="desktop">Desktop</option>
+              </select>
+            </div>
+            <div class="col -lg-6">
+              <i [ngClass]="customerDetailsObj.deviceName=='laptop'?'bi bi-laptop text-primary fs-1':''"></i>
+              <i [ngClass]="customerDetailsObj.deviceName=='mobile'?'bi bi-phone text-success fs-1':''"></i>
+              <i [ngClass]="customerDetailsObj.deviceName=='i-pad'?'bi bi-tablet text-info fs-1':''"></i>
+              <i
+                [ngClass]="customerDetailsObj.deviceName=='desktop'?'bi bi-pc-display-horizontal text-danger fs-1':''"></i>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <label>Device-Price</label>
+              <input type="number" name="devicePrice" placeholder="Device-Price" class="form-control"
+                [(ngModel)]="customerDetailsObj.devicePrice">
+            </div>
+            <div class="col-lg-6">
+              <label>Select Discount</label>
+              <select name="discount" placeholder="Select Discount" class="form-control"
+                [(ngModel)]="customerDetailsObj.discount">
+                <option selected>Select</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="30">30%</option>
+                <option value="50">50%</option>
+              </select>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <label>Final Price</label>
+              <input type="number" placeholder="Final Price" class="form-control" name="finalPrice"
+                [(ngModel)]="customerDetailsObj.finalPrice" (click)="calculatePrice()">
+            </div>
+            <div class="col">
+              <label>Payment Process</label><br>
+
+              <input type="radio" name="paymentProcess" value="online" placeholder="Payment Process"
+                [(ngModel)]="customerDetailsObj.paymentProcess">Online
+              <input type="radio" name="paymentProcess" value="cash" placeholder="Payment Process"
+                [(ngModel)]="customerDetailsObj.paymentProcess">Cash
+              <div [ngClass]="customerDetailsObj.paymentProcess=='online'?'onlinecls':'d-none'">
+                You Have Chosed Online Payment Process
+              </div>
+              <div [ngClass]="customerDetailsObj.paymentProcess=='cash'?'cashcls':'d-none'">
+                You Have Chosed Online Payment Process
+              </div>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <button class="btn btn-success" (click)="onSaveDeviceDetail()">Submit</button>
+              <button class="btn btn-danger" (click)="onCancelDeviceDetail()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col formstyle" [ngClass]="istable?'col-lg-6':'d-none'">
+        <table class="table table-bordered">
+          <tr class="table-bordered">
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Device Name</th>
+            <th>Device Price</th>
+            <th>Discount</th>
+            <th>Final Price</th>
+            <th>Payment Process</th>
+          </tr>
+          <tr *ngFor="let item of customerDetailArray;let i=index">
+            <td>{{i+1}}</td>
+            <td [ngClass]="item.name?'name':''">{{item.name}}</td>
+            <td>{{item.number}}</td>
+            <td>{{item.deviceName}}</td>
+            <td>{{item.devicePrice}}</td>
+            <td  [ngClass]="item.discount>20?'text-danger':'text-info'">{{item.discount}}</td>
+            <td>{{item.finalPrice}}</td>
+            <td>{{item.paymentProcess}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Form Without ngClass-->
+
+ <div class="container">
+  <div class="form-body">
+    <div class="row">
+      <h4 class="p-3 bg-primary text-white text-center">E-Shop Form</h4>
+      <div class="col" [ngClass]="istable?'col-lg-6':'col-lg-12'">
+        <form class="formstyle">
+          <div class="row m-3">
+            <div class="col">
+              <label>Enter Your Name</label>
+              <input type="text" placeholder="Enter Your Name" class="form-control" name="name"
+                [(ngModel)]="customerDetailsObj.name">
+            </div>
+            <div class="col">
+              <label>Enter Your Phone Number</label>
+              <input appAdminaccess type="number" placeholder="Enter Your Phone Number" class="form-control" name="number"
+                [(ngModel)]="customerDetailsObj.number">
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col-lg-6">
+              <label>Select Device You Want To Purchase</label>
+              <select name="deviceName" placeholder="Select Device You Want To Purchase" class="form-control"
+                [(ngModel)]="customerDetailsObj.deviceName">
+                <option selected>Select</option>
+                <option value="laptop">Laptop</option>
+                <option value="mobile">Mobile</option>
+                <option value="i-pad">I-Pad</option>
+                <option value="desktop">Desktop</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <i [ngClass]="customerDetailsObj.deviceName=='laptop'?'bi bi-laptop text-info fs-1':''"></i>
+              <i [ngClass]="customerDetailsObj.deviceName=='mobile'?'bi bi-phone text-success fs-1':''"></i>
+              <i [ngClass]="customerDetailsObj.deviceName=='i-pad'?'bi bi-tablet text-info fs-1':''"></i>
+              <i [ngClass]="customerDetailsObj.deviceName=='desktop'?'bi bi-pc-display-horizontal text-danger fs-1':''"></i>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <label>Device-Price</label>
+              <input type="number" name="devicePrice" placeholder="Device-Price" class="form-control"
+                [(ngModel)]="customerDetailsObj.devicePrice">
+            </div>
+            <div class="col-lg-6">
+              <label>Select Discount</label>
+              <select name="discount" placeholder="Select Discount" class="form-control"
+                [(ngModel)]="customerDetailsObj.discount">
+                <option selected>Select</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="30">30%</option>
+                <option value="50">50%</option>
+              </select>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <label>Final Price</label>
+              <input type="number" placeholder="Final Price" class="form-control" name="finalPrice"
+                [(ngModel)]="customerDetailsObj.finalPrice" (click)="calculatePrice()">
+            </div>
+            <div class="col">
+              <label>Payment Process</label><br>
+
+              <input type="radio" name="paymentProcess" value="online" placeholder="Payment Process"
+                [(ngModel)]="customerDetailsObj.paymentProcess">Online
+              <input type="radio" name="paymentProcess" value="cash" placeholder="Payment Process"
+                [(ngModel)]="customerDetailsObj.paymentProcess">Cash
+              <div [ngClass]="customerDetailsObj.paymentProcess=='online'?'onlinecls':'d-none'">
+                You Have Chosed Online Payment Process
+              </div>
+              <div [ngClass]="customerDetailsObj.paymentProcess=='cash'?'cashcls':'d-none'">
+                You Have Chosed Online Payment Process
+              </div>
+            </div>
+          </div>
+          <div class="row m-3">
+            <div class="col">
+              <button appAdminaccess class="btn btn-success" (click)="onSaveDeviceDetail()">Submit</button>
+              <button class="btn btn-danger" (click)="onCancelDeviceDetail()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col formstyle" [ngClass]="istable?'col-lg-6':'d-none'">
+        <table class="table table-bordered">
+          <tr class="table-bordered">
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Device Name</th>
+            <th>Device Price</th>
+            <th>Discount</th>
+            <th>Final Price</th>
+            <th>Payment Process</th>
+          </tr>
+          <tr *ngFor="let item of customerDetailArray;let i=index">
+            <td>{{i+1}}</td>
+            <td [ngClass]="item.name?'text-danger':''">{{item.name}}</td>
+            <td>{{item.number}}</td>
+            <td>{{item.deviceName}}</td>
+            <td>{{item.devicePrice}}</td>
+            <td [ngClass]="item.discount>20?'text-success':'text-primary'">{{item.discount}}</td>
+            <td>{{item.finalPrice}}</td>
+            <td>{{item.paymentProcess}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

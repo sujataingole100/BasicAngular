@@ -1,0 +1,25 @@
+
+/* .td1 {
+    width: 100px;
+}
+
+.td2 {
+    width: 100px;
+}
+
+.td3 {
+    width: 100px;
+} */
+
+.student-div{
+  display: flex;
+}
+.div1{
+  width: 30%;
+}
+.div2{
+  width: 40%;
+}
+.div3{
+  width: 30%;
+}

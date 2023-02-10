@@ -1,0 +1,80 @@
+<app-reusablecomponent [message]="'NgClass Loaded'" [alertType]="'danger'"></app-reusablecomponent>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div [ngClass] = "isdiv1class?'div1':''">
+        div1
+      </div>
+    </div>
+    <div class="col">
+      <div [ngClass]="mySelectorClass">
+        div2
+      </div>
+    </div>
+    <div class="col">
+      <label [ngClass]="inputcolor">Code First Acedamey</label>
+    </div>
+    <div class="col">
+      <p [ngClass]="newcolor">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, quas?</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" (click)="addClass()">Add Class</button>
+      <button class="btn btn-danger" (click)="removeClass()">Remove Class</button>
+    </div>
+    <div class="col">
+      <select  [(ngModel)] = "mySelectorClass">
+        <option value="bg-primary text-white">primary</option>
+        <option value="bg-secondary">secondary</option>
+        <option value="bg-danger">Danger</option>
+        <option value="bg-info">info</option>
+      </select>
+    </div>
+    <div class="col">
+      <input type="text" placeholder="enter class" [(ngModel)]="inputcolor">
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="newcolor" >
+    </div>
+  </div>
+</div>
+<app-reusable-btn [buttonClass]="'btn-danger'" [buttonTxt]="'ReusableBtn'" (onBtnClicked)="getData($event)"> </app-reusable-btn>
+<div class="container">
+  <div class="row mt-5">
+
+    <div class="col" [ngClass]="isfullwidth?'col-lg-8':'col-lg-12'">
+      <div class="card">
+        <div class="card-body">
+         <div class="row">
+          <div class="col">
+            <h5 class="card-title text-primary">Card title</h5>
+          </div>
+          <div class="col"><button class="btn btn-primary" (click)="addcolumn()">Add Button</button></div>
+         </div>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4" *ngIf="isfullwidth">
+      <div class="card">
+        <div>
+          <button class="btn btn-danger mt-auto" (click)="removecolumn()">Close</button>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+      </div>
+    </div>
+   </div>
+
+  </div>
+
+

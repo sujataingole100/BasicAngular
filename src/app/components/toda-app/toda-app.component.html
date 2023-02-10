@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-success" (click)="onRedirect()">Redirect to Form</button>
+  </div>
+</div>
+
+<div class="container mt-5">
+ <div class="custom-border">
+  <div class="row">
+    <div class="col">
+      <h5 class="bg-primary p-3 text-white text-center">ToDo</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <input type="text" class="form-control" name="todoItem" id="" [(ngModel)]="todoObj.todoItem" placeholder="todoItem">
+    </div>
+    <div class="col-lg-3">
+      <input type="color" class="form-control" name="color" [(ngModel)]="todoObj.color" id="">
+    </div>
+    <div class="col-lg-3">
+      <button class="btn btn-success" (click)="OnAddRecord()">Add</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let item of todoArray">
+      <div class="p-3 m-3" [style.background-color]="item.color">
+        {{item.todoItem}}
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+
